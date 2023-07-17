@@ -5,8 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Login(){
     const navigation = useNavigation();
-    const [email, onChangeEmail] = React.useState("");
-    const [password, onChangePassword] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
 
     return(
          <View style={styles.container}>
@@ -14,14 +14,14 @@ export default function Login(){
             <View>
                 <TextInput 
                     style={styles.input}
-                    onChangeText={onChangeEmail}
+                    onChangeText={setEmail}
                     value={email}
                     placeholder="E-mail"
                     keyboardType="email-address"
                 />
                 <TextInput 
                     style={styles.input}
-                    onChangeText={onChangePassword}
+                    onChangeText={setPassword}
                     value={password}
                     placeholder="Senha"
                     secureTextEntry={true}
