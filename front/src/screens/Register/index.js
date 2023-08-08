@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 
-import { ApiCep } from "../../services/api";
+import { ApiCep } from "../../services/cep";
 import {
   validateCpfChecksum,
   formatPhoneNumber,
@@ -348,31 +348,88 @@ const CadastroPage = () => {
     } else if (userType === "Owner") {
       return (
         <View style={styles.formContainer}>
+          <Text style={styles.titleForm}>Dados Pessoais</Text>
           <TextInput
             style={styles.input}
-            onChangeText={setName}
+            onChangeText={handleChangeName}
+            onBlur={handleValidationName}
             value={name}
             placeholder="Nome"
-            errorEmail={errorName}
           />
+
+          <Text
+            style={errorName === "" ? styles.textCorrect : styles.textError}
+          >
+            {errorName}
+          </Text>
 
           <TextInput
             style={styles.input}
-            onChangeText={setEmail}
+            onChangeText={handleChangeCpf}
+            onBlur={handleValidationCpf}
+            value={formatCpf()}
+            placeholder="CPF"
+            keyboardType="number-pad"
+            maxLength={14}
+          />
+
+          <Text style={errorCpf === "" ? styles.textCorrect : styles.textError}>
+            {errorCpf}
+          </Text>
+
+          <TextInput
+            style={styles.input}
+            onChangeText={handleChangeEmail}
+            onBlur={handleValidationEmail}
+            autoCapitalize="none"
             value={email}
             placeholder="E-mail"
             keyboardType="email-address"
-            errorEmail={errorEmail}
           />
+
+          <Text
+            style={errorEmail === "" ? styles.textCorrect : styles.textError}
+          >
+            {errorEmail}
+          </Text>
 
           <TextInput
             style={styles.input}
-            onChangeText={setPassword}
+            onChangeText={handleChangePassword}
+            onBlur={handleValidationPassword}
             value={password}
             placeholder="Crie sua senha"
             secureTextEntry={true}
-            errorEmail={errorPassword}
           />
+
+          <Text
+            style={errorPassword === "" ? styles.textCorrect : styles.textError}
+          >
+            {errorPassword}
+          </Text>
+
+          <TextInput
+            style={styles.input}
+            onChangeText={handleChangeConfirmPassword}
+            onBlur={handleValidationConfirmPassword}
+            value={confirmPassword}
+            placeholder="Confirme sua senha"
+            secureTextEntry={true}
+          />
+
+          <Text
+            style={
+              errorConfirmPassword === ""
+                ? styles.textCorrect
+                : styles.textError
+            }
+          >
+            {errorConfirmPassword}
+          </Text>
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonTxt}>Cadastrar centro esportivo</Text>
+          </TouchableOpacity>
         </View>
       );
     }
@@ -500,6 +557,7 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: "#660099",
     alignItems: "center",
+    alignSelf: "center",
     justifyContent: "center",
     borderRadius: 30,
     marginBottom: 15,
@@ -507,7 +565,7 @@ const styles = StyleSheet.create({
   },
   buttonTxt: {
     color: "#F6F5F3",
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "bold",
   },
   textError: {
