@@ -19,6 +19,8 @@ import {
   formatCep,
 } from "../../functions";
 
+import { useNavigation } from "@react-navigation/native";
+
 const CadastroPage = () => {
   const [userType, setUserType] = useState("Client");
   const [password, setPassword] = useState("");
@@ -175,6 +177,7 @@ const CadastroPage = () => {
 
   // Função para renderizar o formulário apropriado com base no tipo de usuário selecionado
   const renderForm = () => {
+    const navigation = useNavigation()
     if (userType === "Client") {
       return (
         <View style={styles.formContainer}>
@@ -427,7 +430,10 @@ const CadastroPage = () => {
             {errorConfirmPassword}
           </Text>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("SportCenter")}
+          >
             <Text style={styles.buttonTxt}>Cadastrar centro esportivo</Text>
           </TouchableOpacity>
         </View>
