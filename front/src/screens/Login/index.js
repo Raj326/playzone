@@ -41,7 +41,7 @@ export default function Login() {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => getToken(email, password)}
+          onPress={() => navigation.navigate("ClientHome")}
         >
           <Text style={styles.buttonTxt}>Login</Text>
         </TouchableOpacity>
