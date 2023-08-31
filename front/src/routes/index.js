@@ -5,6 +5,7 @@ import Login from "../screens/Login";
 import SportCenter from "../screens/Sport Center";
 import Court from "../screens/Court";
 import ClientHome from "../screens/ClientHome";
+import SearchScreen from "../screens/SearchScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,11 @@ export default function Routes() {
       <Stack.Screen
         name="ClientHome"
         component={ClientHome}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SearchScreen"
+        component={SearchScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

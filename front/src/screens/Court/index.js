@@ -163,21 +163,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     alignSelf: "center",
   },
-  ontainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  sportButton: {
-    backgroundColor: "#f5f5f5",
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginBottom: 10,
-  },
-  selectedSportButton: {
-    backgroundColor: "black",
-  },
   sportText: {
     color: "black",
     fontSize: 16,
@@ -185,31 +170,11 @@ const styles = StyleSheet.create({
   selectedSportText: {
     color: '#6A5ACD',
   },
-  sportContainer: {
-    flex: 1,
-    backgroundColor: "red",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  sportButton: {
-    backgroundColor: "#f5f5f5",
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginBottom: 10,
-  },
-  selectedSportButton: {
-    backgroundColor: "#9F5AC1",
-  },
   sportText: {
     color: "black",
     fontSize: 20,
     fontWeight: "bold",
-  },
-  selectedSportText: {
-    color: "blue",
-  },
+  },    
   sportPair: {
     flexDirection: "row",
     justifyContent: "space-between",

@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     padding: 10,
+    backgroundColor: "#BA38FC",
+    width: '100%'
   },
   userImage: {
     width: 40,
