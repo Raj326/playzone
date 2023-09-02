@@ -44,8 +44,8 @@ const Court = () => {
     }
   };
 
-  const renderSportPair = (sport1, sport2) => (
-    <View style={styles.sportPair}>
+  const renderSportPair = (sport1, sport2, index) => (
+    <View style={styles.sportPair} key={index}>
       <TouchableOpacity onPress={() => handleSportToggle(sport1)}>
         <Text
           style={[
@@ -102,7 +102,7 @@ const Court = () => {
 
           <Text style={styles.titleForm}>Esportes Suportados</Text>
           {Array.from(Array(Math.ceil(sportsList.length / 2)), (_, index) =>
-            renderSportPair(sportsList[index * 2], sportsList[index * 2 + 1])
+            renderSportPair(sportsList[index * 2], sportsList[index * 2 + 1], index)
           )}
 
           <Text style={styles.titleForm}>Foto da quadra</Text>

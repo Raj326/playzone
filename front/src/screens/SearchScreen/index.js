@@ -39,8 +39,8 @@ export default function SearchScreen() {
     }
   };
 
-  const renderSportPair = (sport1, sport2) => (
-    <View style={styles.sportPair}>
+  const renderSportPair = (sport1, sport2, index) => (
+    <View style={styles.sportPair} key={index}>
       <TouchableOpacity onPress={() => handleSportToggle(sport1)}>
         <Text
           style={[
@@ -124,7 +124,7 @@ export default function SearchScreen() {
         <Text style={styles.titleForm}>Esportes desejados</Text>
         <View style={styles.sportContainer}>
           {Array.from(Array(Math.ceil(sportsList.length / 2)), (_, index) =>
-            renderSportPair(sportsList[index * 2], sportsList[index * 2 + 1])
+            renderSportPair(sportsList[index * 2], sportsList[index * 2 + 1], index)
           )}
         </View>
         <TouchableOpacity style={styles.button}>
