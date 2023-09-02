@@ -6,18 +6,58 @@ import {
   TextInput,
   SafeAreaView,
   TouchableOpacity,
+  StatusBar
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getToken } from "../../services/auth";
+import "../../utils/i18n";
+
+import { useTranslation } from "react-i18next";
 
 export default function Login() {
+  const { t, i18n } = useTranslation();
   const navigation = useNavigation();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
+  const [language, setLanguage] = React.useState('pt')
+  const changeLanguage = value =>{
+    i18n.changeLanguage(value)
+    .then( ()=>{
+      setLanguage(value)
+    })
+    .catch((err) => {
+      console.log(err)
+    });
+  }
   return (
     <View style={styles.container}>
-      <Text style={styles.loginText}>Login</Text>
+       <StatusBar barStyle={'light-content'} backgroundColor="#141A31" />
+      <View style={styles.languages}>
+        <TouchableOpacity
+          onPress={() => {changeLanguage('en')}}
+          style={[
+            styles.langButton,
+            {
+              borderColor: language === 'en' ? "#660099" : 'transparent'
+            },
+          ]}
+        >
+          <Text style={styles.langText}>English</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {changeLanguage('pt')}}
+          style={[
+            styles.langButton,
+            {
+              borderColor: language === 'pt' ? "#660099" : 'transparent'
+            },
+          ]}
+        >
+          <Text style={styles.langText}>Portuguese</Text>
+        </TouchableOpacity>
+      </View>
+      <Text style={styles.loginText}>{t("Login")}</Text>
       <View>
         <TextInput
           style={styles.input}
@@ -31,26 +71,26 @@ export default function Login() {
           style={styles.input}
           onChangeText={setPassword}
           value={password}
-          placeholder="Senha"
+          placeholder={t('Senha')}
           secureTextEntry={true}
         />
 
         <TouchableOpacity>
-          <Text style={styles.forgotPassword}>Esqueceu sua senha? </Text>
+          <Text style={styles.forgotPassword}>{t("Esqueci minha senha")} </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("ClientHome")}
         >
-          <Text style={styles.buttonTxt}>Login</Text>
+          <Text style={styles.buttonTxt}>{t("Login")}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Register")}
         >
-          <Text style={styles.buttonTxt}>Crie sua conta</Text>
+          <Text style={styles.buttonTxt}>{t("Crie sua conta")}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -63,6 +103,25 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start",
+  },
+  languages: {
+    flexDirection: "row",
+    alignSelf: "center",
+
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    marginTop: 30,
+    top: StatusBar.currentHeight
+      ? StatusBar.currentHeight + 18
+      : StatusBar.currentHeight + 58,
+  },
+  langButton:{
+    borderWidth: 2,
+    padding: 4,
+    borderRadius: 5,
+    marginRight: 4,
+    marginLeft: 4,
   },
   loginText: {
     fontSize: 36,

@@ -21,7 +21,11 @@ import {
 
 import { useNavigation } from "@react-navigation/native";
 
+import "../../utils/i18n";
+import { useTranslation } from "react-i18next";
+
 const CadastroPage = () => {
+  const { t, i18n } = useTranslation();
   const [userType, setUserType] = useState("Client");
   const [password, setPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
@@ -449,7 +453,7 @@ const CadastroPage = () => {
       keyboardVerticalOffset={10}
     >
       <ScrollView>
-        <Text style={styles.textSelectType}>Selecione o tipo de usuário:</Text>
+        <Text style={styles.textSelectType}>{t('Selecione o tipo de usuário:')}</Text>
         <View style={styles.selectContainer}>
           <TouchableOpacity onPress={() => handleUserTypeSelection("Client")}>
             <Text style={styleTextClient}>Cliente</Text>
