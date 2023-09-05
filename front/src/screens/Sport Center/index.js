@@ -17,8 +17,12 @@ import * as ImagePicker from "expo-image-picker";
 import { formatCep, validateCep } from "../../functions";
 import { ApiCep } from "../../services/cep";
 import WeekSchedule from "../../components/WeekSchedule";
+import "../../utils/i18n";
+
+import { useTranslation } from "react-i18next";
 
 const SportCenter = () => {
+  const { t, i18n } = useTranslation();
   const [nameCenter, setNameCenter] = useState("");
   const [cep, setCep] = useState("");
   const [errorCep, setErrorCep] = useState("");
@@ -40,7 +44,7 @@ const SportCenter = () => {
   };
 
   const handleValidationCep = () => {
-    validateCep(cep) ? setErrorCep("") : setErrorCep("Cep inválido!");
+    validateCep(cep) ? setErrorCep("") : setErrorCep(i18n.t('Cep inválido!'));
     findCep();
   };
 
@@ -76,7 +80,7 @@ const SportCenter = () => {
     >
       <ScrollView>
         <View style={styles.formContainer}>
-          <Text style={styles.titleForm}>Nome do Centro Esportivo</Text>
+          <Text style={styles.titleForm}>{t('Nome do Centro Esportivo')}</Text>
 
           <TextInput
             style={styles.nameInput}
@@ -84,7 +88,7 @@ const SportCenter = () => {
             onChangeText={setNameCenter}
           />
 
-          <Text style={styles.titleForm}>Endereço</Text>
+          <Text style={styles.titleForm}>{t('Endereço')}</Text>
           <TextInput
             style={styles.input}
             onChangeText={handleChangeCep}
@@ -111,7 +115,7 @@ const SportCenter = () => {
               style={styles.cityInput}
               onChangeText={setCity}
               value={city}
-              placeholder="Cidade"
+              placeholder={t('Cidade')}
               editable={false}
             />
           </View>
@@ -120,7 +124,7 @@ const SportCenter = () => {
             style={styles.input}
             onChangeText={setNeighborhood}
             value={neighborhood}
-            placeholder="Bairro"
+            placeholder={t('Bairro')}
             editable={false}
           />
 
@@ -128,7 +132,7 @@ const SportCenter = () => {
             style={styles.input}
             onChangeText={setStreet}
             value={street}
-            placeholder="Logradouro"
+            placeholder={t('Logradouro')}
             editable={false}
           />
 
@@ -137,7 +141,7 @@ const SportCenter = () => {
               style={styles.shortInput}
               onChangeText={setNumber}
               value={number}
-              placeholder="Número"
+              placeholder={t('Número')}
               textAlign="center"
             />
 
@@ -145,24 +149,24 @@ const SportCenter = () => {
               style={styles.shortInput}
               onChangeText={setComplemento}
               value={complemento}
-              placeholder="Complemento"
+              placeholder={t('Complemento')}
               textAlign="center"
             />
           </View>
-          <Text style={styles.titleForm}>Inserir foto</Text>
+          <Text style={styles.titleForm}>{t('Inserir foto')}</Text>
 
           <TouchableOpacity onPress={handleImagePicker}>
             <Image style={styles.image} source={{ uri: image }} />
           </TouchableOpacity>
 
-          <Text style={styles.titleForm}>Horário de funcionamento</Text>
+          <Text style={styles.titleForm}>{t('Horário de funcionamento')}</Text>
           <WeekSchedule />
 
           <TouchableOpacity
             style={styles.button}
             onPress={() => navigation.navigate("Court")}
           >
-            <Text style={styles.buttonTxt}>Cadastrar Quadras</Text>
+            <Text style={styles.buttonTxt}>{t('Cadastrar Quadras')}</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

@@ -63,7 +63,7 @@ export default function Login() {
           style={styles.input}
           onChangeText={setEmail}
           value={email}
-          placeholder="E-mail"
+          placeholder={t('E-mail')}
           keyboardType="email-address"
           autoCapitalize="none"
         />

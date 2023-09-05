@@ -66,7 +66,7 @@ const CadastroPage = () => {
     const hasAtLeastTwoNames = nameArray.length >= 2;
     hasAtLeastTwoNames
       ? setErrorName("")
-      : setErrorName("Digite pelo menos nome e Sobrenome");
+      : setErrorName(i18n.t('Digite pelo menos nome e sobrenome'));
   };
 
   // Validação de cpf
@@ -80,7 +80,7 @@ const CadastroPage = () => {
     const cpfPattern = /^\d{11}$/;
     cpfPattern.test(cpf) && validateCpfChecksum(cpf)
       ? setErrorCpf("")
-      : setErrorCpf("CPF inválido!");
+      : setErrorCpf(i18n.t('CPF inválido!'));
   };
 
   const formatCpf = () => {
@@ -108,7 +108,7 @@ const CadastroPage = () => {
   const handleValidationPhone = () => {
     validateBrazilianPhoneNumber(phone)
       ? setErrorPhone("")
-      : setErrorPhone("Número de celular inválido!");
+      : setErrorPhone(i18n.t('Número de celular inválido!'));
   };
 
   // Validação de e-mail
@@ -122,7 +122,7 @@ const CadastroPage = () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     emailPattern.test(email)
       ? setErrorEmail("")
-      : setErrorEmail("E-mail inválido!");
+      : setErrorEmail(i18n.t('E-mail inválido!'));
   };
 
   //Validação Senha
@@ -135,7 +135,7 @@ const CadastroPage = () => {
     validatePassword(password)
       ? setErrorPassword("")
       : setErrorPassword(
-          "Senha inválida! A senha deve conter no mínimo: 8 caracteres, pelo menos uma letra minúscula, uma letra maiúscula, um número e um caractere especial"
+          i18n.t('Senha inválida! A senha deve conter no mínimo: 8 caracteres, pelo menos uma letra minúscula, uma letra maiúscula, um número e um caractere especial')
         );
   };
 
@@ -148,7 +148,7 @@ const CadastroPage = () => {
   const handleValidationConfirmPassword = () => {
     password === confirmPassword
       ? setErrorConfirmPassword("")
-      : setErrorConfirmPassword("As senhas devem ser iguais");
+      : setErrorConfirmPassword(i18n.t('As senhas devem ser iguais'));
   };
 
   //Validação CEP
@@ -159,7 +159,7 @@ const CadastroPage = () => {
   };
 
   const handleValidationCep = () => {
-    validateCep(cep) ? setErrorCep("") : setErrorCep("Cep inválido!");
+    validateCep(cep) ? setErrorCep("") : setErrorCep(i18n.t('Cep inválido!'));
     findCep();
   };
 
@@ -185,13 +185,13 @@ const CadastroPage = () => {
     if (userType === "Client") {
       return (
         <View style={styles.formContainer}>
-          <Text style={styles.titleForm}>Dados Pessoais</Text>
+          <Text style={styles.titleForm}>{t('Dados Pessoais')}</Text>
           <TextInput
             style={styles.input}
             onChangeText={handleChangeName}
             onBlur={handleValidationName}
             value={name}
-            placeholder="Nome"
+            placeholder={t('Nome')}
           />
 
           <Text
@@ -219,7 +219,7 @@ const CadastroPage = () => {
             onChangeText={handleChangePhone}
             onBlur={handleValidationPhone}
             value={phone}
-            placeholder="Número de celular(com DDD)"
+            placeholder={t('Número de celular(com DDD)')}
             keyboardType="number-pad"
             maxLength={15}
           />
@@ -251,7 +251,7 @@ const CadastroPage = () => {
             onChangeText={handleChangePassword}
             onBlur={handleValidationPassword}
             value={password}
-            placeholder="Crie sua senha"
+            placeholder={t('Crie sua senha')}
             secureTextEntry={true}
           />
 
@@ -266,7 +266,7 @@ const CadastroPage = () => {
             onChangeText={handleChangeConfirmPassword}
             onBlur={handleValidationConfirmPassword}
             value={confirmPassword}
-            placeholder="Confirme sua senha"
+            placeholder={t('Confirme sua senha')}
             secureTextEntry={true}
           />
 
@@ -280,7 +280,7 @@ const CadastroPage = () => {
             {errorConfirmPassword}
           </Text>
 
-          <Text style={styles.titleForm}>Endereço</Text>
+          <Text style={styles.titleForm}>{t('Endereço')}</Text>
 
           <TextInput
             style={styles.input}
@@ -308,7 +308,7 @@ const CadastroPage = () => {
               style={styles.cityInput}
               onChangeText={setCity}
               value={city}
-              placeholder="Cidade"
+              placeholder={t('Cidade')}
               editable={false}
             />
           </View>
@@ -317,7 +317,7 @@ const CadastroPage = () => {
             style={styles.input}
             onChangeText={setNeighborhood}
             value={neighborhood}
-            placeholder="Bairro"
+            placeholder={t('Bairro')}
             editable={false}
           />
 
@@ -325,7 +325,7 @@ const CadastroPage = () => {
             style={styles.input}
             onChangeText={setStreet}
             value={street}
-            placeholder="Logradouro"
+            placeholder={t('Logradouro')}
             editable={false}
           />
 
@@ -334,7 +334,7 @@ const CadastroPage = () => {
               style={styles.shortInput}
               onChangeText={setNumber}
               value={number}
-              placeholder="Número"
+              placeholder={t('Número')}
               textAlign="center"
             />
 
@@ -342,26 +342,26 @@ const CadastroPage = () => {
               style={styles.shortInput}
               onChangeText={setComplemento}
               value={complemento}
-              placeholder="Complemento"
+              placeholder={t('Complemento')}
               textAlign="center"
             />
           </View>
 
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonTxt}>Cadastrar</Text>
+            <Text style={styles.buttonTxt}>{t('Cadastrar')}</Text>
           </TouchableOpacity>
         </View>
       );
     } else if (userType === "Owner") {
       return (
         <View style={styles.formContainer}>
-          <Text style={styles.titleForm}>Dados Pessoais</Text>
+          <Text style={styles.titleForm}>{t('Dados Pessoais')}</Text>
           <TextInput
             style={styles.input}
             onChangeText={handleChangeName}
             onBlur={handleValidationName}
             value={name}
-            placeholder="Nome"
+            placeholder={t('Nome')}
           />
 
           <Text
@@ -405,7 +405,7 @@ const CadastroPage = () => {
             onChangeText={handleChangePassword}
             onBlur={handleValidationPassword}
             value={password}
-            placeholder="Crie sua senha"
+            placeholder={t('Crie sua senha')}
             secureTextEntry={true}
           />
 
@@ -420,7 +420,7 @@ const CadastroPage = () => {
             onChangeText={handleChangeConfirmPassword}
             onBlur={handleValidationConfirmPassword}
             value={confirmPassword}
-            placeholder="Confirme sua senha"
+            placeholder={t('Confirme sua senha')}
             secureTextEntry={true}
           />
 
@@ -438,7 +438,7 @@ const CadastroPage = () => {
             style={styles.button}
             onPress={() => navigation.navigate("SportCenter")}
           >
-            <Text style={styles.buttonTxt}>Cadastrar centro esportivo</Text>
+            <Text style={styles.buttonTxt}>{t('Cadastrar centro esportivo')}</Text>
           </TouchableOpacity>
         </View>
       );
@@ -456,10 +456,10 @@ const CadastroPage = () => {
         <Text style={styles.textSelectType}>{t('Selecione o tipo de usuário:')}</Text>
         <View style={styles.selectContainer}>
           <TouchableOpacity onPress={() => handleUserTypeSelection("Client")}>
-            <Text style={styleTextClient}>Cliente</Text>
+            <Text style={styleTextClient}>{t('Cliente')}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleUserTypeSelection("Owner")}>
-            <Text style={styleTextOwner}>Proprietário</Text>
+            <Text style={styleTextOwner}>{t('Proprietário')}</Text>
           </TouchableOpacity>
         </View>
 

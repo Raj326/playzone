@@ -14,7 +14,12 @@ import { useNavigation } from "@react-navigation/native";
 
 import * as ImagePicker from "expo-image-picker";
 
+import "../../utils/i18n";
+
+import { useTranslation } from "react-i18next";
+
 const Court = () => {
+  const { t, i18n } = useTranslation();
   const sportsList = [
     "Vôlei de areia",
     "Vôlei de quadra",
@@ -92,7 +97,7 @@ const Court = () => {
     >
       <ScrollView>
         <View style={styles.formContainer}>
-          <Text style={styles.titleForm}>Nome da Quadra</Text>
+          <Text style={styles.titleForm}>{t('Nome da Quadra')}</Text>
 
           <TextInput
             style={styles.nameInput}
@@ -100,18 +105,18 @@ const Court = () => {
             onChangeText={setNameCourt}
           />
 
-          <Text style={styles.titleForm}>Esportes Suportados</Text>
+          <Text style={styles.titleForm}>{t('Esportes Suportados')}</Text>
           {Array.from(Array(Math.ceil(sportsList.length / 2)), (_, index) =>
             renderSportPair(sportsList[index * 2], sportsList[index * 2 + 1], index)
           )}
 
-          <Text style={styles.titleForm}>Foto da quadra</Text>
+          <Text style={styles.titleForm}>{t('Foto da quadra')}</Text>
 
           <TouchableOpacity onPress={handleImagePicker}>
             <Image style={styles.image} source={{ uri: image }} />
           </TouchableOpacity>
 
-          <Text style={styles.titleForm}>Valor por hora</Text>
+          <Text style={styles.titleForm}>{t('Valor por hora')}</Text>
 
           <View style={styles.priceContainer}>
             <Text style={styles.priceText}>R$</Text>
@@ -121,10 +126,10 @@ const Court = () => {
               onChangeText={setPrice}
               keyboardType="decimal-pad"
             />
-            <Text style={styles.priceText}>/ Hora</Text>
+            <Text style={styles.priceText}>/ {t('Hora')}</Text>
           </View>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonTxt}>Salvar</Text>
+            <Text style={styles.buttonTxt}>{t('Salvar')}</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

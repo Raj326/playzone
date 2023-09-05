@@ -13,6 +13,10 @@ import { useNavigation } from "@react-navigation/native";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Slider from "@react-native-community/slider";
+import "../../utils/i18n";
+
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 export default function SearchScreen() {
   const sportsList = [
@@ -65,7 +69,7 @@ export default function SearchScreen() {
       </View>
     </View>
   );
-
+  const { t, i18n } = useTranslation();
   const [minPrice, setMinPrice] = useState();
   const [maxPrice, setMaxPrice] = useState();
   const [selectedSports, setSelectedSports] = useState([]);
@@ -82,10 +86,10 @@ export default function SearchScreen() {
     <SafeAreaView style={styles.container}>
       <Header username={userData.username} userImage={userData.userImage} />
       <View style={styles.filterContainer}>
-        <Text style={styles.titleFilter}>Filtros</Text>
+        <Text style={styles.titleFilter}>{t('Filtros')}</Text>
       </View>
       <View style={styles.formContainer}>
-        <Text style={styles.titleForm}>Distância Máxima: {distance}Km</Text>
+        <Text style={styles.titleForm}>{t('Distância Máxima:')} {distance}Km</Text>
 
         <View style={styles.distanceContainer}>
           <Text style={styles.distanceText}>0km</Text>
@@ -101,7 +105,7 @@ export default function SearchScreen() {
           <Text style={styles.distanceText}>50km</Text>
         </View>
 
-        <Text style={styles.titleForm}>Preço</Text>
+        <Text style={styles.titleForm}>{t('Preço')}</Text>
         <View style={styles.priceContainer}>
           <Text style={styles.priceText}>MIN</Text>
           <TextInput
@@ -121,14 +125,14 @@ export default function SearchScreen() {
             keyboardType="number-pad"
           />
         </View>
-        <Text style={styles.titleForm}>Esportes desejados</Text>
+        <Text style={styles.titleForm}>{t('Esportes desejados')}</Text>
         <View style={styles.sportContainer}>
           {Array.from(Array(Math.ceil(sportsList.length / 2)), (_, index) =>
             renderSportPair(sportsList[index * 2], sportsList[index * 2 + 1], index)
           )}
         </View>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonTxt}>Buscar Arenas</Text>
+          <Text style={styles.buttonTxt}>{t('Buscar Arenas')}</Text>
         </TouchableOpacity>
       </View>
       <Footer />
