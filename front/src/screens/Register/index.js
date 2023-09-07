@@ -7,6 +7,8 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   ScrollView,
+  Platform,
+  Dimensions
 } from "react-native";
 
 import { ApiCep } from "../../services/cep";
@@ -23,6 +25,9 @@ import { useNavigation } from "@react-navigation/native";
 
 import "../../utils/i18n";
 import { useTranslation } from "react-i18next";
+
+const HEIGHT =  Dimensions.get('window').height;
+  const WIDTH =  Dimensions.get('window').width;
 
 const CadastroPage = () => {
   const { t, i18n } = useTranslation();
@@ -490,42 +495,37 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   textSelectType: {
-    marginTop: 100,
-    marginBottom: 30,
-    fontSize: 22,
+    marginTop: HEIGHT * 0.08,
+    marginBottom: HEIGHT * 0.03,
+    fontSize: WIDTH * 0.05,
     alignSelf: "center",
   },
   textSelect: {
     color: "blue",
-    fontSize: 22,
+    fontSize: WIDTH * 0.05,
     color: "#6A5ACD",
   },
   textUnSelect: {
     color: "black",
-    fontSize: 22,
+    fontSize: WIDTH * 0.05,
   },
   scrollViewContainer: {
     width: "100%",
   },
   input: {
-    width: 350,
+    width: WIDTH * 0.85,
     borderBottomColor: "#6A5ACD",
-    borderBottomWidth: 2,
-    fontSize: 22,
-    paddingLeft: 5,
-    paddingBottom: 5,
-    marginBottom: 10,
-  },
-  textInput: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginLeft: 5,
+    borderBottomWidth: WIDTH * 0.006,
+    fontSize: WIDTH * 0.05,
+    paddingLeft: WIDTH * 0.01,
+    paddingBottom: HEIGHT * 0.003,
+    marginBottom: HEIGHT * 0.01,
   },
   titleForm: {
-    fontSize: 25,
+    fontSize: WIDTH * 0.06,
     fontWeight: "bold",
     color: "#000000",
-    marginBottom: 30,
+    marginBottom: HEIGHT * 0.03,
   },
   shortInputContainer: {
     flex: 1,
@@ -533,55 +533,57 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   cityInput: {
-    width: 200,
+    width: WIDTH * 0.5,
     borderBottomColor: "#6A5ACD",
-    borderBottomWidth: 2,
-    fontSize: 20,
-    paddingLeft: 5,
-    paddingBottom: 5,
-    marginBottom: 27,
+    borderBottomWidth: WIDTH * 0.006,
+    fontSize: WIDTH * 0.05,
+    paddingLeft: WIDTH * 0.01,
+    paddingBottom: HEIGHT * 0.003,
+    marginBottom: HEIGHT * 0.03,
     textAlign: "center",
   },
   stateInput: {
-    width: 80,
+    width: WIDTH * 0.2,
     borderBottomColor: "#6A5ACD",
-    borderBottomWidth: 2,
-    fontSize: 20,
-    paddingLeft: 5,
-    paddingBottom: 5,
-    marginBottom: 27,
+    borderBottomWidth: WIDTH * 0.006,
+    fontSize: WIDTH * 0.05,
+    paddingLeft: WIDTH * 0.01,
+    paddingBottom: HEIGHT * 0.003,
+    marginBottom: HEIGHT * 0.03,
     alignItems: "center",
     textAlign: "center",
   },
   shortInput: {
-    width: 150,
+    width: WIDTH * 0.3,
     borderBottomColor: "#6A5ACD",
-    borderBottomWidth: 2,
-    fontSize: 17,
-    paddingLeft: 5,
-    paddingBottom: 5,
-    marginBottom: 27,
+    borderBottomWidth: WIDTH * 0.006,
+    fontSize: WIDTH * 0.04,
+    paddingLeft: WIDTH * 0.01,
+    paddingBottom: HEIGHT * 0.003,
+    marginBottom: HEIGHT * 0.03,
   },
   button: {
-    width: 310,
-    height: 50,
+    width: WIDTH * 0.65,
+    height: HEIGHT * 0.06,
     backgroundColor: "#660099",
     alignItems: "center",
     alignSelf: "center",
     justifyContent: "center",
-    borderRadius: 30,
-    marginBottom: 15,
-    marginTop: 30,
+    borderRadius: WIDTH * 0.05,
+    marginBottom: HEIGHT * 0.015,
+    marginTop: HEIGHT * 0.03,
   },
   buttonTxt: {
     color: "#F6F5F3",
-    fontSize: 20,
+    fontSize: WIDTH * 0.05,
     fontWeight: "bold",
   },
   textError: {
     color: "red",
-    marginLeft: 2,
-    marginBottom: 15,
+    marginLeft: WIDTH * 0.005,
+    marginRight: WIDTH * 0.01,
+    marginBottom: HEIGHT * 0.01,
+    fontSize: HEIGHT * 0.015
   },
   textCorrect: {
     marginBottom: 0,
