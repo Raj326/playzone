@@ -52,6 +52,8 @@
         "Domingo" : "Domingo",
         "Abre" : "Abre",
         "Fecha" : "Fecha",
-        "Fechado" : "Fechado"
+        "Fechado" : "Fechado",
+        "Funcionamento" : "Funcionamento",
+        "Quadras" : "Quadras"
     }
 }

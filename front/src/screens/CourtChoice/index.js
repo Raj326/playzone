@@ -7,6 +7,7 @@ import {
   ScrollView,
   Image,
   Text,
+  TouchableOpacity,
 } from "react-native";
 
 import "../../utils/i18n";
@@ -69,16 +70,18 @@ const CourtChoice = () => {
           <Image style={styles.image} source={{ uri: image }} />
         </View>
         <Text style={styles.centerName}>Arena Fictícia</Text>
-        <View style={styles.ratingView}>
-          <Image
-            source={require("../../assets/estrela.png")}
-            style={styles.iconStar}
-          />
-          <Text style={styles.ratingText}>4.9</Text>
-        </View>
+        <TouchableOpacity>
+          <View style={styles.ratingView}>
+            <Image
+              source={require("../../assets/estrela.png")}
+              style={styles.iconStar}
+            />
+            <Text style={styles.ratingText}>4.9</Text>
+          </View>
+        </TouchableOpacity>
         <View style={styles.divisor}></View>
 
-        <Text style={styles.text}>Endereço</Text>
+        <Text style={styles.text}>{t("Endereço")}</Text>
 
         <View style={styles.addresView}>
           <Image
@@ -92,15 +95,15 @@ const CourtChoice = () => {
             <Text style={styles.addressNameTxt}>Cidade - UF</Text>
           </View>
         </View>
-      
-        <Text style={styles.text}>Funcionamento</Text>
+
+        <Text style={styles.text}>{t("Funcionamento")}</Text>
 
         {days.map((day, index) => renderDays(day, index))}
 
         <View style={styles.CourtTextView}>
-          <Text style={styles.courtText}>Quadras</Text>
+          <Text style={styles.courtText}>{t("Quadras")}</Text>
         </View>
-       <CourtCarousel data={data} />
+        <CourtCarousel data={data} />
       </ScrollView>
     </SafeAreaView>
   );

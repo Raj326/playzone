@@ -52,6 +52,8 @@
         "Domingo" : "Sunday",
         "Abre" : "Open",
         "Fecha" : "Close",
-        "Fechado" : "Closed"
+        "Fechado" : "Closed",
+        "Funcionamento" : "Operation Hours",
+        "Quadras" : "Courts"
     }
 }
