@@ -27,7 +27,7 @@ import "../../utils/i18n";
 import { useTranslation } from "react-i18next";
 
 const HEIGHT =  Dimensions.get('window').height;
-  const WIDTH =  Dimensions.get('window').width;
+const WIDTH =  Dimensions.get('window').width;
 
 const CadastroPage = () => {
   const { t, i18n } = useTranslation();
@@ -353,7 +353,7 @@ const CadastroPage = () => {
           </View>
 
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonTxt}>{t('Cadastrar')}</Text>
+            <Text style={styles.buttonTxtClient}>{t('Cadastrar')}</Text>
           </TouchableOpacity>
         </View>
       );
@@ -443,7 +443,7 @@ const CadastroPage = () => {
             style={styles.button}
             onPress={() => navigation.navigate("SportCenter")}
           >
-            <Text style={styles.buttonTxt}>{t('Cadastrar centro esportivo')}</Text>
+            <Text style={styles.buttonTxtOwner}>{t('Cadastrar centro esportivo')}</Text>
           </TouchableOpacity>
         </View>
       );
@@ -573,9 +573,14 @@ const styles = StyleSheet.create({
     marginBottom: HEIGHT * 0.015,
     marginTop: HEIGHT * 0.03,
   },
-  buttonTxt: {
+  buttonTxtClient: {
     color: "#F6F5F3",
     fontSize: WIDTH * 0.05,
+    fontWeight: "bold",
+  },
+  buttonTxtOwner: {
+    color: "#F6F5F3",
+    fontSize: WIDTH * 0.04,
     fontWeight: "bold",
   },
   textError: {

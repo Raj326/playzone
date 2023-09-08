@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Image,
+  Platform,
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -18,7 +19,7 @@ import "../../utils/i18n";
 
 import { useTranslation } from "react-i18next";
 
-const Court = () => {
+const CourtRegister = () => {
   const { t, i18n } = useTranslation();
   const sportsList = [
     "Vôlei de areia",
@@ -137,7 +138,7 @@ const Court = () => {
   );
 };
 
-export default Court;
+export default CourtRegister;
 
 const styles = StyleSheet.create({
   container: {

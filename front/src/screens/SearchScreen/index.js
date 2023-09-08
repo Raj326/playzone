@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Dimensions,
+  Platform
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 

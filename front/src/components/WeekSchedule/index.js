@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import TimeComboBox from "../TimeCombo";
 
+import "../../utils/i18n";
+import { useTranslation } from "react-i18next";
+
 const DaySchedule = () => {
+  const { t, i18n } = useTranslation();
   const [days, setDays] = useState([
-    { day: "Segunda-feira", open: "", close: "", closed: false },
-    { day: "Terça-feira", open: "", close: "", closed: false },
-    { day: "Quarta-feira", open: "", close: "", closed: false },
-    { day: "Quinta-feira", open: "", close: "", closed: false },
-    { day: "Sexta-feira", open: "", close: "", closed: false },
-    { day: "Sábado", open: "", close: "", closed: false },
-    { day: "Domingo", open: "", close: "", closed: false },
+    { day: i18n.t('Segunda-feira'), open: "", close: "", closed: false },
+    { day: i18n.t('Terça-feira'), open: "", close: "", closed: false },
+    { day: i18n.t('Quarta-feira'), open: "", close: "", closed: false },
+    { day: i18n.t('Quinta-feira'), open: "", close: "", closed: false },
+    { day: i18n.t('Sexta-feira'), open: "", close: "", closed: false },
+    { day: i18n.t('Sábado'), open: "", close: "", closed: false },
+    { day: i18n.t('Domingo'), open: "", close: "", closed: false },
   ]);
 
   const handleToggleClosed = (index) => {
@@ -25,17 +29,17 @@ const DaySchedule = () => {
         <Text style={styles.dayText}>{day.day}</Text>
         <View comboContainer style={styles.comboContainer}>
           {day.closed ? (
-            <Text style={styles.closedText}>Fechado</Text>
+            <Text style={styles.closedText}>{t('Fechado')}</Text>
           ) : (
             <>
               <TimeComboBox
-                placeholder="Abre"
+                placeholder={t('Abre')}
                 selectedValue={day.open}
                 onSelect={(value) => handleTimeSelect(index, "open", value)}
                 disabled={day.closed}
               />
               <TimeComboBox
-                placeholder="Fecha"
+                placeholder={t('Fecha')}
                 selectedValue={day.close}
                 onSelect={(value) => handleTimeSelect(index, "close", value)}
                 disabled={day.closed}

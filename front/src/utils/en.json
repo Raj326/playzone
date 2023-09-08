@@ -42,6 +42,16 @@
         "E-mail inválido!" : "Invalid E-mail!",
         "Senha inválida! A senha deve conter no mínimo: 8 caracteres, pelo menos uma letra minúscula, uma letra maiúscula, um número e um caractere especial" : "Invalid password! The password should contain at least: 8 characters, at least one lowercase letter, a capital letter, a number and a special character",
         "As senhas devem ser iguais" : "Passwords must be equal",
-        "Cep inválido!" : "Invalid! Cep"
+        "Cep inválido!" : "Invalid! Cep",
+        "Segunda-feira" : "Monday",
+        "Terça-feira" : "Tuesday",
+        "Quarta-feira" : "Wednesday",
+        "Quinta-feira" : "Thursday",
+        "Sexta-feira" : "Friday",
+        "Sábado" : "Saturday",
+        "Domingo" : "Sunday",
+        "Abre" : "Open",
+        "Fecha" : "Close",
+        "Fechado" : "Closed"
     }
 }

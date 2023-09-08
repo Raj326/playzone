@@ -42,6 +42,16 @@
         "E-mail inválido!" : "E-mail inválido!",
         "Senha inválida! A senha deve conter no mínimo: 8 caracteres, pelo menos uma letra minúscula, uma letra maiúscula, um número e um caractere especial" : "Senha inválida! A senha deve conter no mínimo: 8 caracteres, pelo menos uma letra minúscula, uma letra maiúscula, um número e um caractere especial",
         "As senhas devem ser iguais" : "As senhas devem ser iguais",
-        "Cep inválido!" : "Cep inválido!"
+        "Cep inválido!" : "Cep inválido!",
+        "Segunda-feira" : "Segunda-feira",
+        "Terça-feira" : "Terça-feira",
+        "Quarta-feira" : "Quarta-feira",
+        "Quinta-feira" : "Quinta-feira",
+        "Sexta-feira" : "Sexta-feira",
+        "Sábado" : "Sábado",
+        "Domingo" : "Domingo",
+        "Abre" : "Abre",
+        "Fecha" : "Fecha",
+        "Fechado" : "Fechado"
     }
 }

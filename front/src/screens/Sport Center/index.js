@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Image,
+  Platform
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -164,7 +165,7 @@ const SportCenter = () => {
 
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate("Court")}
+            onPress={() => navigation.navigate("CourtRegister")}
           >
             <Text style={styles.buttonTxt}>{t('Cadastrar Quadras')}</Text>
           </TouchableOpacity>
