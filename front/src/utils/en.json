@@ -54,6 +54,11 @@
         "Fecha" : "Close",
         "Fechado" : "Closed",
         "Funcionamento" : "Operation Hours",
-        "Quadras" : "Courts"
+        "Quadras" : "Courts",
+        "Centros Esporivos" : "Sports Centers",
+        "Próximos a você" : "Near to you",
+        "Minhas Reservas" : "My Reservation",
+        "Data" : "Date",
+        "Horário" : "Schedule"
     }
 }

@@ -54,6 +54,11 @@
         "Fecha" : "Fecha",
         "Fechado" : "Fechado",
         "Funcionamento" : "Funcionamento",
-        "Quadras" : "Quadras"
+        "Quadras" : "Quadras",
+        "Centros Esporivos" : "Centros Esporivos",
+        "Próximos a você" : "Próximos a você",
+        "Minhas Reservas" : "Minhas Reservas",
+        "Data" : "Data",
+        "Horário" : "Horário"
     }
 }
