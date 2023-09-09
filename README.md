@@ -4,7 +4,7 @@
 
 #### Projeto desenvolvido com **Expo**
 
-## Funcionalidades do aplicativo<
+## Funcionalidades do aplicativo
 - Fazer Login
 - Cadastro de usuário
 - Cadastro de proprietário de centro esportivo
